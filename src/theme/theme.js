@@ -6,7 +6,7 @@ const theme = createTheme({
       main: "rgba(74,20,140,0.69)",
     },
     secondary: {
-      main: "rgba(255, 111, 0, 0)",
+      main: "rgb(255, 111, 0)",
     },
   },
   typography: {
@@ -18,9 +18,10 @@ const theme = createTheme({
   },
   breakpoints: {
     values: {
-      mobile: 320,
-      tablet: 768,
-      laptop: 1280,
+      xs: 0,
+      sm: 320,
+      md: 768,
+      lg: 1280,
     },
   },
 });

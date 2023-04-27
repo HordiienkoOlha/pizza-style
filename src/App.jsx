@@ -1,27 +1,55 @@
-import { ThemeProvider, styled } from "@mui/material/styles";
-import LocalPizzaOutlinedIcon from '@mui/icons-material/LocalPizzaOutlined';
-import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
-import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
+import { ThemeProvider } from "@mui/material/styles";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import theme from "./theme/theme";
-import "./App.css";
+import CartView from "./views/CartView";
+import PizzaView from "./views/PizzaView";
+import NotFoundView from "./views/NotFoundView";
+import AppBarComponent from "./components/AppBarComponent/AppBarComponent";
 
-function App() {
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppBar />,
+    children: [
+      {
+        index: true,
+        element: <Pizza />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+]);
+
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <h1>
-       Pizza Style
-      </h1>
-      <LocalPizzaOutlinedIcon sx={{
-                width: 48,
-                height: 48,
-                color: "black",
-              }} />
-      <RemoveCircleOutlineTwoToneIcon />
-      <AddCircleOutlineTwoToneIcon/>
-      
+      <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
     </ThemeProvider>
   );
+};
+
+function AppBar() {
+  return <AppBarComponent />;
+}
+
+function Pizza() {
+  return <PizzaView />;
+}
+
+function Cart() {
+  return <CartView />;
+}
+
+function NotFound() {
+  return <NotFoundView />;
 }
 
 export default App;
