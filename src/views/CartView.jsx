@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+
 import { Box, Toolbar, Typography } from "@mui/material";
 import LocalPizzaOutlinedIcon from "@mui/icons-material/LocalPizzaOutlined";
 import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
@@ -25,9 +25,8 @@ const CartView = () => {
       >
         <Toolbar />
         <Typography>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          unde fugit veniam eius, perspiciatis sunt?
-          <h2>CartView</h2>
+          
+          CartView
           <LocalPizzaOutlinedIcon
             sx={{
               width: 48,
@@ -44,8 +43,8 @@ const CartView = () => {
               color: "black",
             }}
           />
-          <Outlet />
         </Typography>
+          {/* <Outlet /> */}
       </Box>
     </>
   );

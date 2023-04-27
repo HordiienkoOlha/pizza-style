@@ -1,18 +1,21 @@
-import { Box, Typography } from "@mui/material";
+
+import { Box, Toolbar, Typography } from "@mui/material";
+import LocalPizzaOutlinedIcon from "@mui/icons-material/LocalPizzaOutlined";
+import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
+import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
+import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
 
 const PizzaView = () => {
   return (
     <>
       <Box
         sx={{
-          // bgcolor: "primary.main",
           "@media (min-width: 320px)": {
             maxWidth: "320px",
             p: 0,
           },
           "@media (min-width: 768px)": {
             maxWidth: "768px",
-            // p: 1,
           },
           maxWidth: "1280px",
           width: "100%",
@@ -20,9 +23,28 @@ const PizzaView = () => {
           p: 2,
         }}
       >
+        <Toolbar />
         <Typography>
-          <h2>Pizza</h2>
+          
+          zdfgrzdztrjhrsjsj
+          <LocalPizzaOutlinedIcon
+            sx={{
+              width: 48,
+              height: 48,
+              color: "black",
+            }}
+          />
+          <RemoveCircleOutlineTwoToneIcon />
+          <AddCircleOutlineTwoToneIcon />
+          <LocalGroceryStoreOutlinedIcon
+            sx={{
+              width: 48,
+              height: 48,
+              color: "black",
+            }}
+          />
         </Typography>
+          {/* <Outlet /> */}
       </Box>
     </>
   );

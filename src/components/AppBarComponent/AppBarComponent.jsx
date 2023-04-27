@@ -17,7 +17,7 @@ import DrawerComponent from "../DrawerComponent/DrawerComponent";
 import Navigation from "../Navigation/Navigation";
 import Logo from "../Logo/Logo";
 import { Outlet } from "react-router-dom";
-// import styles from "./AppBar.module.css";
+import styles from "./AppBarComponent.module.css";
 
 const AppBarComponent = () => {
   const drawerWidth = 240;
@@ -60,13 +60,18 @@ const AppBarComponent = () => {
           >
             <Toolbar>
               <IconButton
-                color="primary"
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
                 sx={{ mr: 1, display: { md: "none" } }}
               >
-                <MenuIcon />
+                <MenuIcon
+                  sx={{
+                    width: 32,
+                    height: 32,
+                  }}
+                  className={styles.icon}
+                />
               </IconButton>
 
               <Logo />
@@ -79,14 +84,24 @@ const AppBarComponent = () => {
               >
                 <Navigation />
               </Box>
-              <Button sx={{ marginInlineStart: "auto" }}>
+              {/* <Button sx={{ marginInlineStart: "auto" }}> */}
+
+              <IconButton
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ mr: 1, display: { md: "none" }, marginInlineStart: "auto" }}
+              >
                 <LocalGroceryStoreOutlinedIcon
                   sx={{
                     width: 32,
                     height: 32,
+                    marginInlineStart: "auto",
                   }}
+                  className={styles.icon}
                 />
-              </Button>
+              </IconButton>
+              {/* </Button> */}
             </Toolbar>
           </Box>
         </AppBar>
