@@ -1,13 +1,9 @@
-
-import { Box, Toolbar, Typography } from "@mui/material";
-import LocalPizzaOutlinedIcon from "@mui/icons-material/LocalPizzaOutlined";
-import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
-import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
-import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
+import { Box, Container, Toolbar } from "@mui/material";
+import CartList from "../components/CartList/CartList";
 
 const CartView = () => {
   return (
-    <>
+    <Container>
       <Box
         sx={{
           "@media (min-width: 320px)": {
@@ -24,29 +20,9 @@ const CartView = () => {
         }}
       >
         <Toolbar />
-        <Typography>
-          
-          CartView
-          <LocalPizzaOutlinedIcon
-            sx={{
-              width: 48,
-              height: 48,
-              color: "black",
-            }}
-          />
-          <RemoveCircleOutlineTwoToneIcon />
-          <AddCircleOutlineTwoToneIcon />
-          <LocalGroceryStoreOutlinedIcon
-            sx={{
-              width: 48,
-              height: 48,
-              color: "black",
-            }}
-          />
-        </Typography>
-          {/* <Outlet /> */}
-      </Box>
-    </>
+      <CartList />
+    </Box>
+    </Container>
   );
 };
 

@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import {
   AppBar,
+  Badge,
   Box,
   // Button,
   // CssBaseline,
   Drawer,
   IconButton,
   Toolbar,
+  styled,
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -18,12 +21,25 @@ import Navigation from "../Navigation/Navigation";
 import Logo from "../Logo/Logo";
 import { Outlet } from "react-router-dom";
 import styles from "./AppBarComponent.module.css";
+import { getProducts } from "../../redux/products/productsSelector";
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}));
 
 const AppBarComponent = () => {
   const drawerWidth = 240;
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [container, setContainer] = useState(false);
+  
+  const productsCart = useSelector(getProducts);
+  const quantityCartProduct = productsCart.length;
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -87,23 +103,26 @@ const AppBarComponent = () => {
               {/* <Button sx={{ marginInlineStart: "auto" }}> */}
 
               <IconButton
-                aria-label="open drawer"
-                edge="start"
+                aria-label="cart"
                 onClick={handleDrawerToggle}
                 sx={{
                   mr: 1,
-                  // display: { md: "none" },
                   marginInlineStart: "auto",
                 }}
               >
-                <LocalGroceryStoreOutlinedIcon
-                  sx={{
-                    width: 32,
-                    height: 32,
-                    marginInlineStart: "auto",
-                  }}
-                  className={styles.icon}
-                />
+                <StyledBadge
+                  badgeContent={quantityCartProduct}
+                  color="secondary"
+                >
+                  <LocalGroceryStoreOutlinedIcon
+                    sx={{
+                      width: 32,
+                      height: 32,
+                      marginInlineStart: "auto",
+                    }}
+                    className={styles.icon}
+                  />
+                </StyledBadge>
               </IconButton>
               {/* </Button> */}
             </Toolbar>
@@ -131,7 +150,7 @@ const AppBarComponent = () => {
             </Box>
           </Drawer>
         </Box>
-      <Outlet />
+        <Outlet />
       </Box>
     </>
   );

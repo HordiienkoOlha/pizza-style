@@ -6,6 +6,7 @@ const products = [
     price: 99,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const products = [
     price: 109,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const products = [
     price: 139,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ const products = [
     price: 159,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
   {
     id: 5,
@@ -42,6 +46,7 @@ const products = [
     price: 129,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
   {
     id: 6,
@@ -51,6 +56,7 @@ const products = [
     price: 149,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
   {
     id: 7,
@@ -60,6 +66,7 @@ const products = [
     price: 169,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
   {
     id: 8,
@@ -68,6 +75,7 @@ const products = [
     price: 99,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
   {
     id: 9,
@@ -77,6 +85,7 @@ const products = [
     price: 139,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
   {
     id: 10,
@@ -86,6 +95,7 @@ const products = [
     price: 149,
     image:
       "https://panda-pizza.com.ua/cache/dish-mobile/img/dishes/pizza/4seasons.jpg?130223",
+    quantity: 0,
   },
 ];
 

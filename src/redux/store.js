@@ -1,16 +1,32 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import productsReducer from "./products/productSlice";
 
-import { productApi } from "./products/productSlice";
+const persistConfig = {
+  key: "products",
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
-    [productApi.reducerPath]: productApi.reducer,
+    products: persistReducer(persistConfig, productsReducer),
   },
-  middleware: (getDefaultMiddleware) => [
-    ...getDefaultMiddleware(),
-    productApi.middleware,
-  ],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
-setupListeners(store.dispatch);
+export const persistor = persistStore(store);

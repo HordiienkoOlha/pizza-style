@@ -1,3 +1,8 @@
+import {
+  // useEffect,
+  useState,
+} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import {
   Button,
@@ -11,12 +16,9 @@ import {
 } from "@mui/material";
 import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
 import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
-
+import { addProduct, deleteProductQuantity } from "../../redux/products/productSlice";
 import styles from "./PizzaList.module.css";
-import {
-  // useEffect,
-  useState,
-} from "react";
+import { getProducts } from "../../redux/products/productsSelector";
 
 const ReverseButton = styled(Button)`
   &:hover {
@@ -26,13 +28,26 @@ const ReverseButton = styled(Button)`
 `;
 
 const PizzaList = ({ products }) => {
-  const [cartProduct, setCardProduct] = useState(null);
-  // const [showAddButton, setShowAddButton] = useState(true);
-  // console.log(products);
-  console.log(cartProduct);
+    const productsCart = useSelector(getProducts);
+  const quantityCartProduct = productsCart.length;
+  const dispatch = useDispatch();
 
-  const addProduct = () => setCardProduct(cartProduct + 1);
-  const removeProduct = () => setCardProduct(cartProduct - 1);
+  const OnHandleAddProduct = ({ id, title, description, price, image, quantity }) => {
+    if (quantity >= 1) {
+      
+    }
+    const newProduct = {
+      id,
+      title,
+      description,
+      price,
+      image,
+      quantity: quantity + 1,
+    };
+    console.log(newProduct);
+    dispatch(addProduct(newProduct));
+  };
+
 
   // useEffect(() => {
   //   // if (!cartProduct) {
@@ -50,14 +65,17 @@ const PizzaList = ({ products }) => {
     <>
       <List className={styles.list}>
         {products &&
-          products.map(({ id, title, description, price, image }) => (
+          products.map(({ id, title, description, price, image, quantity }) => (
             <ListItem key={id} className={styles.item}>
               <Card sx={{ height: "100%" }} className={styles.card}>
                 <CardContent>
                   <div className={styles.cardImageContainer}>
-
-
-                <CardMedia component="img" image={image} alt={title} className={styles.cardImage}/>
+                    <CardMedia
+                      component="img"
+                      image={image}
+                      alt={title}
+                      className={styles.cardImage}
+                    />
                   </div>
                 </CardContent>
 
@@ -78,28 +96,35 @@ const PizzaList = ({ products }) => {
                   </Typography>
                 </CardContent>
                 <CardContent className={styles.buttonWrapper}>
-                  {/* {cartProduct?.length > 1 ? ( */}
+                  {quantityCartProduct > 0 ? (
                     <>
-                      <ReverseButton onClick={removeProduct}>
+                      <ReverseButton
+                        onClick={() => {
+                          dispatch(deleteProductQuantity(id));
+                        }}
+                      >
                         <RemoveCircleOutlineTwoToneIcon />
                       </ReverseButton>
                       <Typography
                         variant="h6"
                         display="flex"
-                      alignItems="center"
-                      sx={{p:2}}
+                        alignItems="center"
+                        sx={{ p: 2 }}
                       >
-                        {cartProduct}
+                        {" "}
                       </Typography>
-                      <ReverseButton onClick={addProduct}>
+                      <ReverseButton onClick={() => OnHandleAddProduct({ id, title, description, price, image, quantity })}>
                         <AddCircleOutlineTwoToneIcon />
                       </ReverseButton>
                     </>
-                  {/* ) : ( */}
-                    <ReverseButton variant="outlined" onClick={addProduct}>
+                  ) : (
+                    <ReverseButton
+                      variant="outlined"
+                      onClick={() => OnHandleAddProduct({ id, title, description, price, image, quantity })}
+                    >
                       Add to cart
                     </ReverseButton>
-                  {/* )} */}
+                  )}
                 </CardContent>
               </Card>
             </ListItem>
