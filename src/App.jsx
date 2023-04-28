@@ -13,6 +13,9 @@ function App() {
       <BrowserRouter>
         <AppBarComponent />
         <Routes>
+          {/* <Route path="/" element={<AppBarComponent />} /> */}
+          {/* <Route index element={<PizzaView />} /> */}
+          
           <Route path="/" element={<PizzaView />} />
           <Route path="cart" element={<CartView />} />
           <Route path="*" element={<NotFoundView />} />
