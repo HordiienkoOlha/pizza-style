@@ -1,13 +1,12 @@
-
-import { Box, Toolbar, Typography } from "@mui/material";
-import LocalPizzaOutlinedIcon from "@mui/icons-material/LocalPizzaOutlined";
-import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
-import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
-import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
+import { Box, Container, Toolbar } from "@mui/material";
+import getProducts from "../api/FakeApi";
+import PizzaList from "../components/PizzaList/PizzaList";
 
 const PizzaView = () => {
+  const products = getProducts();
+  console.log(products);
   return (
-    <>
+    <Container>
       <Box
         sx={{
           "@media (min-width: 320px)": {
@@ -24,29 +23,10 @@ const PizzaView = () => {
         }}
       >
         <Toolbar />
-        <Typography>
-          
-          zdfgrzdztrjhrsjsj
-          <LocalPizzaOutlinedIcon
-            sx={{
-              width: 48,
-              height: 48,
-              color: "black",
-            }}
-          />
-          <RemoveCircleOutlineTwoToneIcon />
-          <AddCircleOutlineTwoToneIcon />
-          <LocalGroceryStoreOutlinedIcon
-            sx={{
-              width: 48,
-              height: 48,
-              color: "black",
-            }}
-          />
-        </Typography>
-          {/* <Outlet /> */}
+
+        <PizzaList products={products} />
       </Box>
-    </>
+    </Container>
   );
 };
 

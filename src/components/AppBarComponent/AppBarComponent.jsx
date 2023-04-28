@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import {
   AppBar,
   Box,
-  Button,
-  CssBaseline,
+  // Button,
+  // CssBaseline,
   Drawer,
   IconButton,
   Toolbar,
@@ -41,7 +41,7 @@ const AppBarComponent = () => {
   return (
     <>
       <Box sx={{ display: "flex" }}>
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <AppBar component="nav">
           <Box
             sx={{
@@ -90,7 +90,11 @@ const AppBarComponent = () => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 1, display: { md: "none" }, marginInlineStart: "auto" }}
+                sx={{
+                  mr: 1,
+                  display: { md: "none" },
+                  marginInlineStart: "auto",
+                }}
               >
                 <LocalGroceryStoreOutlinedIcon
                   sx={{
@@ -127,8 +131,8 @@ const AppBarComponent = () => {
             </Box>
           </Drawer>
         </Box>
-      </Box>
       <Outlet />
+      </Box>
     </>
   );
 };
