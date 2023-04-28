@@ -4,13 +4,19 @@ import {
   Card,
   CardContent,
   CardMedia,
+  IconButton,
   List,
   ListItem,
   Typography,
 } from "@mui/material";
+import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
+import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
+
 import styles from "./PizzaList.module.css";
+import { useState } from "react";
 
 const PizzaList = ({ products }) => {
+  const [cartProduct, setCardProduct] = useState(1)
   console.log(products);
   return (
     <>
@@ -34,6 +40,15 @@ const PizzaList = ({ products }) => {
                 </CardContent>
                 <CardContent className={styles.buttonWrapper}>
                   <Button variant="outlined">Add to cart</Button>
+                  <IconButton>
+                    <RemoveCircleOutlineTwoToneIcon />
+                  </IconButton>
+                  <Typography variant="h6" display="flex" alignItems="center">
+                  {cartProduct}
+                  </Typography>
+                  <IconButton>
+                    <AddCircleOutlineTwoToneIcon />
+                  </IconButton>
                 </CardContent>
               </Card>
             </ListItem>

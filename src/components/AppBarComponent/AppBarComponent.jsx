@@ -92,7 +92,7 @@ const AppBarComponent = () => {
                 onClick={handleDrawerToggle}
                 sx={{
                   mr: 1,
-                  display: { md: "none" },
+                  // display: { md: "none" },
                   marginInlineStart: "auto",
                 }}
               >
