@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { AppBar, Box, Drawer, IconButton, Toolbar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
@@ -9,7 +9,11 @@ import { getProducts } from "../../redux/products/productsSelector";
 import DrawerComponent from "../DrawerComponent/DrawerComponent";
 import Navigation from "../Navigation/Navigation";
 import Logo from "../Logo/Logo";
-import { StyledBadge, StyledBox } from "../../styles/styledComponent";
+import {
+  ReverseIconButton,
+  StyledBadge,
+  StyledBox,
+} from "../../styles/styledComponent";
 import styles from "./AppBarComponent.module.css";
 
 const AppBarComponent = () => {
@@ -51,7 +55,6 @@ const AppBarComponent = () => {
                     width: 32,
                     height: 32,
                   }}
-                  className={styles.icon}
                 />
               </IconButton>
               <Logo />
@@ -63,29 +66,33 @@ const AppBarComponent = () => {
               >
                 <Navigation />
               </Box>
-
-              <IconButton
-                aria-label="cart"
-                onClick={handleDrawerToggle}
+              <Box
                 sx={{
                   mr: 1,
                   marginInlineStart: "auto",
                 }}
               >
-                <StyledBadge
-                  badgeContent={quantityCartProduct}
-                  color="secondary"
-                >
-                  <LocalGroceryStoreOutlinedIcon
-                    sx={{
-                      width: 32,
-                      height: 32,
-                      marginInlineStart: "auto",
-                    }}
-                    className={styles.icon}
-                  />
-                </StyledBadge>
-              </IconButton>
+                <Link to="/cart">
+                  <ReverseIconButton
+                    aria-label="cart"
+                    onClick={handleDrawerToggle}
+                  >
+                    <StyledBadge
+                      badgeContent={quantityCartProduct}
+                      color="secondary"
+                    >
+                      <LocalGroceryStoreOutlinedIcon
+                        sx={{
+                          width: 32,
+                          height: 32,
+                          marginInlineStart: "auto",
+                        }}
+                        className={styles.icon}
+                      />
+                    </StyledBadge>
+                  </ReverseIconButton>
+                </Link>
+              </Box>
             </Toolbar>
           </StyledBox>
         </AppBar>
@@ -96,7 +103,7 @@ const AppBarComponent = () => {
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true,
             }}
             sx={{
               display: { xs: "block", sm: "block", md: "none" },

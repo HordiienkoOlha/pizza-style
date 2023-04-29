@@ -1,12 +1,19 @@
 import styled from "@emotion/styled";
-import { Button, Badge, Box, Typography } from "@mui/material";
+import { Button, Badge, Box, Typography, IconButton } from "@mui/material";
 
-export const ReverseButton = styled(Button)`
-  &:hover {
-    background-color: rgba(74, 20, 140, 0.69);
-    color: #fff;
-  }
-`;
+export const ReverseButton = styled(Button)(({ theme }) => ({
+  "&:hover": {
+    color: ` ${theme.palette.background.paper}`,
+    backgroundColor: `${theme.palette.primary.main}}`,
+  },
+}));
+
+export const ReverseIconButton = styled(IconButton)(({ theme }) => ({
+  "&:hover": {
+    color: ` ${theme.palette.background.paper}`,
+    backgroundColor: `${theme.palette.primary.main}}`,
+  },
+}));
 
 export const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {

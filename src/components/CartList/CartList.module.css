@@ -30,7 +30,13 @@
 }
 
 .link {
-  text-decoration: none;
+  color: rgb(255, 111, 0);
+}
+
+.infoList {
+  display: grid;
+  grid-template-columns: 70% 25%;
+  grid-gap: 5%;
 }
 
 @media (min-width: 768px) {

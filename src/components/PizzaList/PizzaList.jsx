@@ -17,7 +17,7 @@ import {
 } from "../../redux/products/productSlice";
 import { getProducts } from "../../redux/products/productsSelector";
 import getProductsApi from "../../api/FakeApi";
-import { ReverseButton } from "../../styles/styledComponent";
+import { ReverseButton, ReverseIconButton } from "../../styles/styledComponent";
 import styles from "./PizzaList.module.css";
 
 const PizzaList = () => {
@@ -82,13 +82,13 @@ const PizzaList = () => {
                 <CardContent className={styles.buttonWrapper}>
                   {productsCart.length > 0 ? (
                     <>
-                      <ReverseButton
+                      <ReverseIconButton
                         onClick={() => {
                           dispatch(deleteProductQuantity(id));
                         }}
                       >
                         <RemoveCircleOutlineTwoToneIcon />
-                      </ReverseButton>
+                      </ReverseIconButton>
                       <Typography
                         variant="h6"
                         display="flex"
@@ -97,7 +97,7 @@ const PizzaList = () => {
                       >
                         {" "}
                       </Typography>
-                      <ReverseButton
+                      <ReverseIconButton
                         onClick={() =>
                           OnHandleAddProduct({
                             id,
@@ -110,7 +110,7 @@ const PizzaList = () => {
                         }
                       >
                         <AddCircleOutlineTwoToneIcon />
-                      </ReverseButton>
+                      </ReverseIconButton>
                     </>
                   ) : (
                     <ReverseButton

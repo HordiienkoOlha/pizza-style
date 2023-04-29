@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import {
+  Box,
   Divider,
   List,
   ListItem,
@@ -16,9 +17,12 @@ const DrawerComponent = () => {
         PIZZA STYLE
       </Typography>
       <Divider />
-      <List>
+      <Box sx={{  p: 2  }}>
+
+      
+      <List >
         <ListItem disablePadding>
-          <ListItemButton sx={{ textAlign: "center" }}>
+          <ListItemButton >
             <NavLink
               exact="true"
               to="/"
@@ -31,18 +35,19 @@ const DrawerComponent = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton sx={{ textAlign: "center" }}>
+          <ListItemButton>
             <NavLink
               to="/cart"
               className={({ isActive }) =>
                 isActive ? styles["active-link"] : styles.link
               }
             >
-              <Typography variant="h6">Cart</Typography>
+              <Typography variant="h6" >Cart</Typography>
             </NavLink>
           </ListItemButton>
         </ListItem>
-      </List>
+        </List>
+        </Box>
     </>
   );
 };

@@ -25,10 +25,13 @@ export const productSlice = createSlice({
       }
       products.items = updatedItems;
     },
+    clearCart: (products) => {
+      products.items = [];
+    },
   },
 });
 
-export const { addProduct, deleteProduct, deleteProductQuantity } =
+export const { addProduct, deleteProduct, deleteProductQuantity, clearCart } =
   productSlice.actions;
 
 export default productSlice.reducer;

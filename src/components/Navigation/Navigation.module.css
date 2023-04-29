@@ -1,11 +1,13 @@
 .link {
   display: inline-block;
-  padding: 6px 12px;
+  /* padding: 0 12px; */
   text-decoration: none;
   font-family: inherit;
   font-weight: 500;
   font-size: 22px;
+
   color: rgba(21, 25, 28, 0.77);
+  border-bottom: 1px solid transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -18,9 +20,6 @@
 .active-link {
   composes: link;
   color: rgba(255, 111, 0);
+  border-bottom: 1px solid rgba(255, 111, 0);
 }
 
-.link:hover,
-.link:focus {
-  background-color: rgba(74, 20, 140, 0.04);
-}
