@@ -16,12 +16,14 @@ import {
   deleteProductQuantity,
 } from "../../redux/products/productSlice";
 import { getProducts } from "../../redux/products/productsSelector";
+import getProductsApi from "../../api/FakeApi";
 import { ReverseButton } from "../../styles/styledComponent";
 import styles from "./PizzaList.module.css";
 
-const PizzaList = ({ products }) => {
+const PizzaList = () => {
+  const products = getProductsApi();
   const productsCart = useSelector(getProducts);
-  const quantityCartProduct = productsCart.length;
+
   const dispatch = useDispatch();
 
   const OnHandleAddProduct = ({
@@ -40,7 +42,6 @@ const PizzaList = ({ products }) => {
       image,
       quantity: quantity + 1,
     };
-    console.log(newProduct);
     dispatch(addProduct(newProduct));
   };
 
@@ -79,7 +80,7 @@ const PizzaList = ({ products }) => {
                   </Typography>
                 </CardContent>
                 <CardContent className={styles.buttonWrapper}>
-                  {quantityCartProduct > 0 ? (
+                  {productsCart.length > 0 ? (
                     <>
                       <ReverseButton
                         onClick={() => {

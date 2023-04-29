@@ -16,12 +16,12 @@ import {
   addProduct,
   deleteProductQuantity,
 } from "../../redux/products/productSlice";
-import { ReverseButton } from "../../styles/styledComponent";
+import { ReverseButton, StyledTypography } from "../../styles/styledComponent";
 import styles from "./CartList.module.css";
 
 const CartList = () => {
   const productsCart = useSelector(getProducts);
-  
+
   const mergedProducts = productsCart.reduce((acc, curr) => {
     const matchingProduct = acc.find((p) => p.id === curr.id);
     if (matchingProduct) {
@@ -38,93 +38,96 @@ const CartList = () => {
 
   return (
     <>
-      <List className={styles.list}>
-        {productsCart?.length > 0 ? (
-          mergedProducts.map(
-            ({ id, title, description, price, image, quantity }) => (
-              <ListItem key={id} className={styles.item}>
-                <Card sx={{ height: "100%" }} className={styles.card}>
-                  <CardContent>
-                    <div className={styles.cardImageContainer}>
-                      <CardMedia
-                        component="img"
-                        image={image}
-                        alt={title}
-                        className={styles.cardImage}
-                      />
-                    </div>
-                  </CardContent>
+      {productsCart?.length > 0 ? (
+        <List className={styles.list}>
+          {mergedProducts &&
+            mergedProducts.map(
+              ({ id, title, description, price, image, quantity }) => (
+                <ListItem key={id} className={styles.item}>
+                  <Card sx={{ height: "100%" }} className={styles.card}>
+                    <CardContent>
+                      <div className={styles.cardImageContainer}>
+                        <CardMedia
+                          component="img"
+                          image={image}
+                          alt={title}
+                          className={styles.cardImage}
+                        />
+                      </div>
+                    </CardContent>
 
-                  <CardContent>
-                    <Typography variant="h6" component="h2" gutterBottom>
-                      {title}
-                    </Typography>
-                    <Typography variant="body2" sx={{ minHeight: "60px" }}>
-                      {description}
-                    </Typography>
-                    <Typography
-                      variant="h5"
-                      component="h3"
-                      color="secondary"
-                      sx={{ p: 1 }}
-                    >
-                      Price: {price}
-                    </Typography>
-                  </CardContent>
-                  <CardContent className={styles.buttonWrapper}>
-                    {/* {cartProduct?.length > 1 ? ( */}
-                    <>
-                      <ReverseButton
-                        onClick={() => {
-                          dispatch(deleteProductQuantity(id));
-                        }}
-                      >
-                        <RemoveCircleOutlineTwoToneIcon />
-                      </ReverseButton>
-                      <Typography
-                        variant="h6"
-                        display="flex"
-                        alignItems="center"
-                        sx={{ p: 2 }}
-                      >
-                        {quantity}
+                    <CardContent>
+                      <Typography variant="h6" component="h2" gutterBottom>
+                        {title}
                       </Typography>
-                      <ReverseButton
-                        onClick={() => {
-                          dispatch(
-                            addProduct({
-                              id,
-                              title,
-                              description,
-                              price,
-                              image,
-                              quantity,
-                            })
-                          );
-                        }}
+                      <Typography variant="body2" sx={{ minHeight: "60px" }}>
+                        {description}
+                      </Typography>
+                      <Typography
+                        variant="h5"
+                        component="h3"
+                        color="secondary"
+                        sx={{ p: 1 }}
                       >
-                        <AddCircleOutlineTwoToneIcon />
-                      </ReverseButton>
-                    </>
-                    {/* ) : ( */}
-                    {/* <ReverseButton variant="outlined" onClick={()=>{
+                        Price: {price}
+                      </Typography>
+                    </CardContent>
+                    <CardContent className={styles.buttonWrapper}>
+                      {/* {cartProduct?.length > 1 ? ( */}
+                      <>
+                        <ReverseButton
+                          onClick={() => {
+                            dispatch(deleteProductQuantity(id));
+                          }}
+                        >
+                          <RemoveCircleOutlineTwoToneIcon />
+                        </ReverseButton>
+                        <Typography
+                          variant="h6"
+                          display="flex"
+                          alignItems="center"
+                          sx={{ p: 2 }}
+                        >
+                          {quantity}
+                        </Typography>
+                        <ReverseButton
+                          onClick={() => {
+                            dispatch(
+                              addProduct({
+                                id,
+                                title,
+                                description,
+                                price,
+                                image,
+                                quantity,
+                              })
+                            );
+                          }}
+                        >
+                          <AddCircleOutlineTwoToneIcon />
+                        </ReverseButton>
+                      </>
+                      {/* ) : ( */}
+                      {/* <ReverseButton variant="outlined" onClick={()=>{
                       console.log(product)
                       dispatch(addProduct(product));
                     }}>
                       Add to cart
                     </ReverseButton> */}
-                    {/* )} */}
-                  </CardContent>
-                </Card>
-              </ListItem>
-            )
-          )
-        ) : (
-          <Typography>
-            Please, choose pizza <Link to="/">here</Link>
-          </Typography>
-        )}
-      </List>
+                      {/* )} */}
+                    </CardContent>
+                  </Card>
+                </ListItem>
+              )
+            )}
+        </List>
+      ) : (
+        <StyledTypography
+          variant="h4"
+        >
+            Please, choose pizza&nbsp;<Link to="/" className={styles.link}>here</Link>
+        </StyledTypography>
+      )}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, Badge, Box } from "@mui/material";
+import { Button, Badge, Box, Typography } from "@mui/material";
 
 export const ReverseButton = styled(Button)`
   &:hover {
@@ -31,4 +31,16 @@ export const StyledBox = styled(Box)`
   width: 100%;
   margin: 0 auto;
   padding: 2px;
+`;
+
+export const StyledTypography = styled(Typography)`
+  @media (min-width: 768px) {
+    font-size: 30px;
+    padding: 200px 0 0 0;
+  }
+  display: flex;
+  justify-content: center;
+  padding: 80px 0 0 0;
+  font-size: 20px;
+  text-decoration: none;
 `;

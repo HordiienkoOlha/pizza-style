@@ -99,8 +99,8 @@ const products = [
   },
 ];
 
-const getProducts = () => {
+const getProductsApi = () => {
   return products;
 };
 
-export default getProducts;
+export default getProductsApi;
