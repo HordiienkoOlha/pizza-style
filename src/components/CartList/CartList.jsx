@@ -1,45 +1,37 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
-  Button,
   Card,
   CardContent,
   CardMedia,
   List,
   ListItem,
   Typography,
-  styled,
 } from "@mui/material";
-
 import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
 import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
 
 import { getProducts } from "../../redux/products/productsSelector";
-import { addProduct, deleteProductQuantity } from "../../redux/products/productSlice";
+import {
+  addProduct,
+  deleteProductQuantity,
+} from "../../redux/products/productSlice";
+import { ReverseButton } from "../../styles/styledComponent";
 import styles from "./CartList.module.css";
-import { Link } from "react-router-dom";
 
-const ReverseButton = styled(Button)`
-  &:hover {
-    background-color: rgba(74, 20, 140, 0.69);
-    color: #fff;
-  }
-`;
 const CartList = () => {
   const productsCart = useSelector(getProducts);
-  // console.log("CartView", productsCart);
-  // console.log(JSON.stringify(productsCart, null, 2));
-
+  
   const mergedProducts = productsCart.reduce((acc, curr) => {
-  const matchingProduct = acc.find((p) => p.id === curr.id);
-  if (matchingProduct) {
-    matchingProduct.quantity++;
-  } else {
-    acc.push({ ...curr, quantity: 1 });
-  }
-  return acc;
-}, []);
+    const matchingProduct = acc.find((p) => p.id === curr.id);
+    if (matchingProduct) {
+      matchingProduct.quantity++;
+    } else {
+      acc.push({ ...curr, quantity: 1 });
+    }
+    return acc;
+  }, []);
 
-  // console.log(mergedProducts);
   console.log(JSON.stringify(mergedProducts, null, 2));
 
   const dispatch = useDispatch();
@@ -128,7 +120,9 @@ const CartList = () => {
             )
           )
         ) : (
-          <Typography>Please, choose pizza <Link to="/">here</Link></Typography>
+          <Typography>
+            Please, choose pizza <Link to="/">here</Link>
+          </Typography>
         )}
       </List>
     </>

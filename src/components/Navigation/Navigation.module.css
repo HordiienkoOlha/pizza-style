@@ -20,4 +20,5 @@
 .link:hover,
 .link:focus {
   background-color: rgba(74, 20, 140, 0.04);
+  color: #fff;
 }

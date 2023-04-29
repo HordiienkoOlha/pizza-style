@@ -1,34 +1,16 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-
-import {
-  AppBar,
-  Badge,
-  Box,
-  Drawer,
-  IconButton,
-  Toolbar,
-  styled,
-} from "@mui/material";
-
+import { Outlet } from "react-router-dom";
+import { AppBar, Box, Drawer, IconButton, Toolbar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
 
+import { getProducts } from "../../redux/products/productsSelector";
 import DrawerComponent from "../DrawerComponent/DrawerComponent";
 import Navigation from "../Navigation/Navigation";
 import Logo from "../Logo/Logo";
-import { Outlet } from "react-router-dom";
+import { StyledBadge } from "../../styles/styledComponent";
 import styles from "./AppBarComponent.module.css";
-import { getProducts } from "../../redux/products/productsSelector";
-
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  "& .MuiBadge-badge": {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: "0 4px",
-  },
-}));
 
 const AppBarComponent = () => {
   const drawerWidth = 240;

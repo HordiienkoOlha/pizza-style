@@ -1,30 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import {
-  Button,
   Card,
   CardContent,
   CardMedia,
   List,
   ListItem,
   Typography,
-  styled,
 } from "@mui/material";
 import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
 import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
+
 import {
   addProduct,
   deleteProductQuantity,
 } from "../../redux/products/productSlice";
-import styles from "./PizzaList.module.css";
 import { getProducts } from "../../redux/products/productsSelector";
-
-const ReverseButton = styled(Button)`
-  &:hover {
-    background-color: rgba(74, 20, 140, 0.69);
-    color: #fff;
-  }
-`;
+import { ReverseButton } from "../../styles/styledComponent";
+import styles from "./PizzaList.module.css";
 
 const PizzaList = ({ products }) => {
   const productsCart = useSelector(getProducts);
