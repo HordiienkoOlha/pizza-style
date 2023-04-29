@@ -30,7 +30,7 @@
 }
 
 .link {
-  color: rgb(255, 111, 0);
+  color: var(--accent-color);
 }
 
 .infoList {
