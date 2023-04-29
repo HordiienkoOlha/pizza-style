@@ -1,6 +1,6 @@
 Pizza Style
 
-This is a React application using Redux for state management, React Router for client-side routing, and Material-UI for styling.
+This is a React application using Redux for state management, React Router for client-side routing, and Material-UI for styling. The project was developed using the Mobile First approach, with responsive design for mobile devices from 320px, tablets from 768px and desktops from 1280px. The CSS Grid algorithm was used to create the layout of the product cards.
 
 Getting Started
 To run the application, first clone the repository and install the dependencies using npm:
@@ -39,6 +39,6 @@ Pages
 - Pizza
 - Cart
 
-Approach
+Deploy on Netlify
 
-The project was developed using the Mobile First approach, with responsive design for mobile devices from 320px, tablets from 768px and desktops from 1280px. The CSS Grid algorithm was used to create the layout of the product cards.
+https://olha-pizza-style.netlify.app/
