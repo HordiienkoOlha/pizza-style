@@ -33,3 +33,12 @@ components: This app includes the following components:
 views: This directory contains the views for each route, such as PizzaView, CartView, and NotFoundView.
 redux: This directory contains the Redux store and action creators.
 theme: This directory contains the Material-UI theme configuration.
+
+Pages
+
+- Pizza
+- Cart
+
+Approach
+
+The project was developed using the Mobile First approach, with responsive design for mobile devices from 320px, tablets from 768px and desktops from 1280px. The CSS Grid algorithm was used to create the layout of the product cards.
