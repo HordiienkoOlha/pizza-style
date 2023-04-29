@@ -26,7 +26,7 @@ const DrawerComponent = () => {
                 isActive ? styles["active-link"] : styles.link
               }
             >
-              Pizza
+              <Typography variant="h6">Pizza</Typography>
             </NavLink>
           </ListItemButton>
         </ListItem>
@@ -38,7 +38,7 @@ const DrawerComponent = () => {
                 isActive ? styles["active-link"] : styles.link
               }
             >
-              Cart
+              <Typography variant="h6">Cart</Typography>
             </NavLink>
           </ListItemButton>
         </ListItem>

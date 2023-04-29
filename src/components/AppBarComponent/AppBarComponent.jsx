@@ -9,7 +9,7 @@ import { getProducts } from "../../redux/products/productsSelector";
 import DrawerComponent from "../DrawerComponent/DrawerComponent";
 import Navigation from "../Navigation/Navigation";
 import Logo from "../Logo/Logo";
-import { StyledBadge } from "../../styles/styledComponent";
+import { StyledBadge, StyledBox } from "../../styles/styledComponent";
 import styles from "./AppBarComponent.module.css";
 
 const AppBarComponent = () => {
@@ -38,21 +38,7 @@ const AppBarComponent = () => {
     <>
       <Box sx={{ display: "flex" }}>
         <AppBar component="nav">
-          <Box
-            sx={{
-              "@media (min-width: 320px)": {
-                maxWidth: "320px",
-                p: 0,
-              },
-              "@media (min-width: 768px)": {
-                maxWidth: "768px",
-              },
-              maxWidth: "1280px",
-              width: "100%",
-              margin: "0 auto",
-              p: 2,
-            }}
-          >
+          <StyledBox>
             <Toolbar>
               <IconButton
                 aria-label="open drawer"
@@ -68,9 +54,7 @@ const AppBarComponent = () => {
                   className={styles.icon}
                 />
               </IconButton>
-
               <Logo />
-
               <Box
                 sx={{
                   px: 5,
@@ -103,7 +87,7 @@ const AppBarComponent = () => {
                 </StyledBadge>
               </IconButton>
             </Toolbar>
-          </Box>
+          </StyledBox>
         </AppBar>
         <Box component="nav">
           <Drawer
