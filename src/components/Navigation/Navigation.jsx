@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import styles from "./Navigation.module.css";
+import { Typography } from "@mui/material";
 
 const Navigation = () => {
   return (
@@ -12,7 +13,7 @@ const Navigation = () => {
           isActive ? styles["active-link"] : styles.link
         }
       >
-        Pizza
+        <Typography variant="h6">Pizza</Typography>
       </NavLink>
       <NavLink
         to="/cart"
@@ -20,7 +21,7 @@ const Navigation = () => {
           isActive ? styles["active-link"] : styles.link
         }
       >
-        Cart
+        <Typography variant="h6">Cart</Typography>
       </NavLink>
     </>
   );

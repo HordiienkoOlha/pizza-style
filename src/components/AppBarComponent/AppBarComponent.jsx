@@ -5,8 +5,6 @@ import {
   AppBar,
   Badge,
   Box,
-  // Button,
-  // CssBaseline,
   Drawer,
   IconButton,
   Toolbar,
@@ -37,7 +35,7 @@ const AppBarComponent = () => {
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [container, setContainer] = useState(false);
-  
+
   const productsCart = useSelector(getProducts);
   const quantityCartProduct = productsCart.length;
 
@@ -57,7 +55,6 @@ const AppBarComponent = () => {
   return (
     <>
       <Box sx={{ display: "flex" }}>
-        {/* <CssBaseline /> */}
         <AppBar component="nav">
           <Box
             sx={{
@@ -100,7 +97,6 @@ const AppBarComponent = () => {
               >
                 <Navigation />
               </Box>
-              {/* <Button sx={{ marginInlineStart: "auto" }}> */}
 
               <IconButton
                 aria-label="cart"
@@ -124,7 +120,6 @@ const AppBarComponent = () => {
                   />
                 </StyledBadge>
               </IconButton>
-              {/* </Button> */}
             </Toolbar>
           </Box>
         </AppBar>

@@ -1,7 +1,3 @@
-import {
-  // useEffect,
-  useState,
-} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import {
@@ -16,7 +12,10 @@ import {
 } from "@mui/material";
 import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
 import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
-import { addProduct, deleteProductQuantity } from "../../redux/products/productSlice";
+import {
+  addProduct,
+  deleteProductQuantity,
+} from "../../redux/products/productSlice";
 import styles from "./PizzaList.module.css";
 import { getProducts } from "../../redux/products/productsSelector";
 
@@ -28,14 +27,18 @@ const ReverseButton = styled(Button)`
 `;
 
 const PizzaList = ({ products }) => {
-    const productsCart = useSelector(getProducts);
+  const productsCart = useSelector(getProducts);
   const quantityCartProduct = productsCart.length;
   const dispatch = useDispatch();
 
-  const OnHandleAddProduct = ({ id, title, description, price, image, quantity }) => {
-    if (quantity >= 1) {
-      
-    }
+  const OnHandleAddProduct = ({
+    id,
+    title,
+    description,
+    price,
+    image,
+    quantity,
+  }) => {
     const newProduct = {
       id,
       title,
@@ -47,19 +50,6 @@ const PizzaList = ({ products }) => {
     console.log(newProduct);
     dispatch(addProduct(newProduct));
   };
-
-
-  // useEffect(() => {
-  //   // if (!cartProduct) {
-  //   //   return;
-  //   // }
-  //   if (cartProduct?.length > 1) {
-  //     console.log(cartProduct);
-  //     setShowAddButton(false);
-  //   }
-
-  //   return;
-  // }, [cartProduct]);
 
   return (
     <>
@@ -113,14 +103,34 @@ const PizzaList = ({ products }) => {
                       >
                         {" "}
                       </Typography>
-                      <ReverseButton onClick={() => OnHandleAddProduct({ id, title, description, price, image, quantity })}>
+                      <ReverseButton
+                        onClick={() =>
+                          OnHandleAddProduct({
+                            id,
+                            title,
+                            description,
+                            price,
+                            image,
+                            quantity,
+                          })
+                        }
+                      >
                         <AddCircleOutlineTwoToneIcon />
                       </ReverseButton>
                     </>
                   ) : (
                     <ReverseButton
                       variant="outlined"
-                      onClick={() => OnHandleAddProduct({ id, title, description, price, image, quantity })}
+                      onClick={() =>
+                        OnHandleAddProduct({
+                          id,
+                          title,
+                          description,
+                          price,
+                          image,
+                          quantity,
+                        })
+                      }
                     >
                       Add to cart
                     </ReverseButton>
