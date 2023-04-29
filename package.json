@@ -16,12 +16,14 @@
     "@mui/material": "^5.12.2",
     "@reduxjs/toolkit": "^1.9.5",
     "prettier": "^2.8.8",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "redux-persist": "^6.0.0",
-    "reselect": "^4.1.8"
+    "reselect": "^4.1.8",
+    "vite-aliases": "^0.11.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

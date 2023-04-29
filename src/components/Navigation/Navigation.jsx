@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { Typography } from "@mui/material";
 
 import styles from "./Navigation.module.css";
-import { Typography } from "@mui/material";
 
 const Navigation = () => {
   return (

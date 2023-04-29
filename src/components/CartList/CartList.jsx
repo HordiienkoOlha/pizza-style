@@ -1,31 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  List,
-  ListItem,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import RemoveCircleOutlineTwoToneIcon from "@mui/icons-material/RemoveCircleOutlineTwoTone";
-import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
-import { Delete } from "@mui/icons-material";
+import { CardContent, List, ListItem, Typography } from "@mui/material";
 
-import { getProducts } from "../../redux/products/productsSelector";
-import {
-  addProduct,
-  clearCart,
-  deleteProduct,
-  deleteProductQuantity,
-} from "../../redux/products/productSlice";
-import {
-  ReverseButton,
-  ReverseIconButton,
-  StyledTypography,
-} from "../../styles/styledComponent";
+import { clearCart } from "@redux/products/productSlice";
+import { calculateTotal } from "@helpers/calculateTotal";
+import { getProducts } from "@redux/products/productsSelector";
+import CardItem from "@components/CardItem";
+import { ReverseButton, StyledTypography } from "@styles/styledComponent";
 import styles from "./CartList.module.css";
 
 const CartList = () => {
@@ -41,19 +22,7 @@ const CartList = () => {
     return acc;
   }, []);
 
-  const calculateTotal = () => {
-    let total = 0;
-    mergedProducts.forEach((mergedProduct) => {
-      total += mergedProduct.quantity * mergedProduct.price;
-    });
-    return total;
-  };
-
-  const totalPrice = calculateTotal();
-  console.log(totalPrice);
-
-  console.log(productsCart);
-  console.log(JSON.stringify(mergedProducts, null, 2));
+  const totalPrice = calculateTotal(mergedProducts);
 
   const dispatch = useDispatch();
 
@@ -66,93 +35,18 @@ const CartList = () => {
               mergedProducts.map(
                 ({ id, title, description, price, image, quantity }) => (
                   <ListItem key={id} className={styles.item}>
-                    <Card sx={{ display: "flex" }}>
-                      <Box sx={{ display: "flex", flexDirection: "column" }}>
-                        <CardContent sx={{ flex: "1 0 auto" }}>
-                          <div className={styles.cardImageContainer}>
-                            <CardMedia
-                              component="img"
-                              image={image}
-                              alt={title}
-                              className={styles.cardImage}
-                            />
-                          </div>
-                        </CardContent>
-                        <CardContent>
-                          <Typography variant="h6" component="h2" gutterBottom>
-                            {title}
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            sx={{ minHeight: "60px" }}
-                          >
-                            {description}
-                          </Typography>
-                          <ul className={styles.infoList}>
-                            <li className={styles.infoItem}>
-                              <Typography
-                                variant="h5"
-                                component="h3"
-                                color="secondary"
-                                sx={{ p: 1 }}
-                              >
-                                Price: {price}
-                              </Typography>
-                              <Typography variant="h6" sx={{ p: 1 }}>
-                                Quantity: {quantity}
-                              </Typography>
-                            </li>
-
-                            <li className={styles.infoItem}>
-                              <Tooltip title="Remove">
-                                <ReverseIconButton
-                                  aria-label="Remove"
-                                  size="sm"
-                                  color="primary"
-                                  onClick={() => {
-                                    dispatch(deleteProduct(id));
-                                  }}
-                                >
-                                  <Delete />
-                                </ReverseIconButton>
-                              </Tooltip>
-                            </li>
-                          </ul>
-                        </CardContent>
-
-                        <CardContent className={styles.buttonWrapper}>
-                          <ReverseIconButton
-                            sx={{ marginRight: 2 }}
-                            onClick={() => {
-                              dispatch(deleteProductQuantity(id));
-                            }}
-                          >
-                            <RemoveCircleOutlineTwoToneIcon />
-                          </ReverseIconButton>
-                          <ReverseIconButton
-                            onClick={() => {
-                              dispatch(
-                                addProduct({
-                                  id,
-                                  title,
-                                  description,
-                                  price,
-                                  image,
-                                  quantity,
-                                })
-                              );
-                            }}
-                          >
-                            <AddCircleOutlineTwoToneIcon />
-                          </ReverseIconButton>
-                        </CardContent>
-                      </Box>
-                    </Card>
+                    <CardItem
+                      id={id}
+                      title={title}
+                      description={description}
+                      price={price}
+                      image={image}
+                      quantity={quantity}
+                    />
                   </ListItem>
                 )
               )}
           </List>
-
           <CardContent className={styles.buttonWrapper}>
             <Typography variant="h4">
               Total:&nbsp;{totalPrice}&nbsp;UAH

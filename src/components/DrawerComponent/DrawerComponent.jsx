@@ -17,37 +17,35 @@ const DrawerComponent = () => {
         PIZZA STYLE
       </Typography>
       <Divider />
-      <Box sx={{  p: 2  }}>
-
-      
-      <List >
-        <ListItem disablePadding>
-          <ListItemButton >
-            <NavLink
-              exact="true"
-              to="/"
-              className={({ isActive }) =>
-                isActive ? styles["active-link"] : styles.link
-              }
-            >
-              <Typography variant="h6">Pizza</Typography>
-            </NavLink>
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                isActive ? styles["active-link"] : styles.link
-              }
-            >
-              <Typography variant="h6" >Cart</Typography>
-            </NavLink>
-          </ListItemButton>
-        </ListItem>
+      <Box sx={{ p: 2 }}>
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <NavLink
+                exact="true"
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? styles["active-link"] : styles.link
+                }
+              >
+                <Typography variant="h6">Pizza</Typography>
+              </NavLink>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  isActive ? styles["active-link"] : styles.link
+                }
+              >
+                <Typography variant="h6">Cart</Typography>
+              </NavLink>
+            </ListItemButton>
+          </ListItem>
         </List>
-        </Box>
+      </Box>
     </>
   );
 };

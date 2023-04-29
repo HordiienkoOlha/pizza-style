@@ -5,16 +5,15 @@ import { AppBar, Box, Drawer, IconButton, Toolbar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
 
-import { getProducts } from "../../redux/products/productsSelector";
-import DrawerComponent from "../DrawerComponent/DrawerComponent";
-import Navigation from "../Navigation/Navigation";
-import Logo from "../Logo/Logo";
+import { getProducts } from "@redux/products/productsSelector";
+import DrawerComponent from "@components/DrawerComponent";
+import Logo from "@components/Logo";
+import Navigation from "@components/Navigation/Navigation";
 import {
   ReverseIconButton,
   StyledBadge,
   StyledBox,
-} from "../../styles/styledComponent";
-import styles from "./AppBarComponent.module.css";
+} from "@styles/styledComponent";
 
 const AppBarComponent = () => {
   const drawerWidth = 240;
@@ -87,7 +86,6 @@ const AppBarComponent = () => {
                           height: 32,
                           marginInlineStart: "auto",
                         }}
-                        className={styles.icon}
                       />
                     </StyledBadge>
                   </ReverseIconButton>

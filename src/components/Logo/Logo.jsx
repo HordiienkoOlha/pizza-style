@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-
 import LocalPizzaOutlinedIcon from "@mui/icons-material/LocalPizzaOutlined";
 
 const Logo = () => {
