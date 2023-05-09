@@ -28,6 +28,12 @@
             ],
             "@PizzaItem/*": [
                 "src/components/PizzaItem/*"
+            ],
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@pages/*": [
+                "src/pages/*"
             ]
         }
     }

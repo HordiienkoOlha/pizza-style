@@ -10,6 +10,14 @@ export const productSlice = createSlice({
   reducers: {
     addProduct: (products, { payload }) => {
       products.items.push(payload);
+      // const itemIndex = products.items.findIndex(
+      //   (item) => item.id === payload.id
+      // );
+      // if (itemIndex === -1) {
+      //   products.items.push({ ...payload, quantity: 1 });
+      // } else {
+      //   products.items[itemIndex].quantity += 1;
+      // }
     },
     deleteProduct: (products, { payload }) => {
       products.items = products.items.filter((item) => item.id !== payload);
