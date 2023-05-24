@@ -6,8 +6,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --text-color: rgba(0, 0, 0, 0.87);
-  --accent-color: rgb(255, 111, 0);
+  --text-color: #141313;
+  --accent-color: #c62828;
 }
 
 body {
