@@ -23,85 +23,83 @@ import styles from "./CardItem.module.css";
 const CardItem = ({ id, title, description, price, image, quantity }) => {
   const dispatch = useDispatch();
   return (
-    <>
-      <Card sx={{ display: "flex" }}>
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <CardContent sx={{ flex: "1 0 auto" }}>
-            <div className={styles.cardImageContainer}>
-              <CardMedia
-                component="img"
-                image={image}
-                alt={title}
-                className={styles.cardImage}
-              />
-            </div>
-          </CardContent>
-          <CardContent>
-            <Typography variant="h6" component="h2" gutterBottom>
-              {title}
-            </Typography>
-            <Typography variant="body2" sx={{ minHeight: "60px" }}>
-              {description}
-            </Typography>
-            <Typography
-              variant="h5"
-              component="h3"
-              color="secondary"
-              sx={{ p: 1 }}
-            >
-              Price:&nbsp;{price}&nbsp;UAH
-            </Typography>
-            <ul className={styles.infoList}>
-              <li className={styles.infoItem}>
-                <Typography variant="h6" sx={{ p: 1 }}>
-                  Quantity: {quantity}
-                </Typography>
-              </li>
-              <li className={styles.infoItem}>
-                <Tooltip title="Remove">
-                  <ReverseIconButton
-                    aria-label="Remove"
-                    size="sm"
-                    color="primary"
-                    onClick={() => {
-                      dispatch(deleteProduct(id));
-                    }}
-                  >
-                    <Delete />
-                  </ReverseIconButton>
-                </Tooltip>
-              </li>
-            </ul>
-          </CardContent>
-          <CardContent className={styles.buttonWrapper}>
-            <ReverseIconButton
-              sx={{ marginRight: 2 }}
-              onClick={() => {
-                dispatch(deleteProductQuantity(id));
-              }}
-            >
-              <RemoveCircleOutlineTwoToneIcon />
-            </ReverseIconButton>
-            <ReverseIconButton
-              onClick={() => {
-                dispatch(
-                  addProduct({
-                    id,
-                    title,
-                    description,
-                    price,
-                    image,
-                    quantity,
-                  })
-                );
-              }}
-            >
-              <AddCircleOutlineTwoToneIcon />
-            </ReverseIconButton>
-          </CardContent>
-        </Box>
-      </Card>
-    </>
+    <Card sx={{ display: "flex" }} className={styles.card}>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <CardContent sx={{ flex: "1 0 auto" }}>
+          <div className={styles.cardImageContainer}>
+            <CardMedia
+              component="img"
+              image={image}
+              alt={title}
+              className={styles.cardImage}
+            />
+          </div>
+        </CardContent>
+        <CardContent>
+          <Typography variant="h6" component="h2" gutterBottom>
+            {title}
+          </Typography>
+          <Typography variant="body2" sx={{ minHeight: "60px" }}>
+            {description}
+          </Typography>
+          <Typography
+            variant="h5"
+            component="h3"
+            color="secondary"
+            sx={{ p: 1 }}
+          >
+            Price:&nbsp;{price}&nbsp;UAH
+          </Typography>
+          <ul className={styles.infoList}>
+            <li className={styles.infoItem}>
+              <Typography variant="h6" sx={{ p: 1 }}>
+                Quantity: {quantity}
+              </Typography>
+            </li>
+            <li className={styles.infoItem}>
+              <Tooltip title="Remove">
+                <ReverseIconButton
+                  aria-label="Remove"
+                  size="sm"
+                  color="primary"
+                  onClick={() => {
+                    dispatch(deleteProduct(id));
+                  }}
+                >
+                  <Delete />
+                </ReverseIconButton>
+              </Tooltip>
+            </li>
+          </ul>
+        </CardContent>
+        <CardContent className={styles.buttonWrapper}>
+          <ReverseIconButton
+            sx={{ marginRight: 2 }}
+            onClick={() => {
+              dispatch(deleteProductQuantity(id));
+            }}
+          >
+            <RemoveCircleOutlineTwoToneIcon />
+          </ReverseIconButton>
+          <ReverseIconButton
+            onClick={() => {
+              dispatch(
+                addProduct({
+                  id,
+                  title,
+                  description,
+                  price,
+                  image,
+                  quantity,
+                })
+              );
+            }}
+          >
+            <AddCircleOutlineTwoToneIcon />
+          </ReverseIconButton>
+        </CardContent>
+      </Box>
+    </Card>
   );
 };
 

@@ -9,25 +9,23 @@ const PizzaList = () => {
   const products = getProductsApi();
 
   return (
-    <>
-      <List className={styles.list}>
-        {products &&
-          products.map(({ id, title, description, price, image, quantity }) => {
-            return (
-              <ListItem key={id} className={styles.item}>
-                <PizzaItem
-                  id={id}
-                  title={title}
-                  description={description}
-                  price={price}
-                  image={image}
-                  quantity={quantity}
-                />
-              </ListItem>
-            );
-          })}
-      </List>
-    </>
+    <List className={styles.list}>
+      {products &&
+        products.map(({ id, title, description, price, image, quantity }) => {
+          return (
+            <ListItem key={id} className={styles.item}>
+              <PizzaItem
+                id={id}
+                title={title}
+                description={description}
+                price={price}
+                image={image}
+                quantity={quantity}
+              />
+            </ListItem>
+          );
+        })}
+    </List>
   );
 };
 
