@@ -42,6 +42,8 @@ const PizzaItem = ({ id, title, description, price, image, quantity }) => {
             component="img"
             image={image}
             alt={title}
+            width="500"
+            loading="lazy"
             className={styles.cardImage}
           />
         </div>

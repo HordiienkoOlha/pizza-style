@@ -8,12 +8,16 @@ import NotFoundView from "@views/NotFoundView";
 function App() {
   return (
     <>
-      <AppBarComponent />
-      <Routes>
-        <Route path="/" element={<PizzaView />} />
-        <Route path="cart" element={<CartView />} />
-        <Route path="*" element={<NotFoundView />} />
-      </Routes>
+      <header>
+        <AppBarComponent />
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<PizzaView />} />
+          <Route path="cart" element={<CartView />} />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
+      </main>
     </>
   );
 }

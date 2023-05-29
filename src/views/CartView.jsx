@@ -5,12 +5,14 @@ import { StyledBox } from "@styles/styledComponent";
 
 const CartView = () => {
   return (
-    <Container>
-      <StyledBox>
-        <Toolbar />
-        <CartList />
-      </StyledBox>
-    </Container>
+    <section>
+      <Container>
+        <StyledBox>
+          <Toolbar />
+          <CartList />
+        </StyledBox>
+      </Container>
+    </section>
   );
 };
 

@@ -5,12 +5,15 @@ import { StyledBox } from "@styles/styledComponent";
 
 const PizzaView = () => {
   return (
-    <Container>
-      <StyledBox>
-        <Toolbar />
-        <PizzaList />
-      </StyledBox>
-    </Container>
+    <section>
+      <Container>
+        <StyledBox>
+          <Toolbar />
+          <h1></h1>
+          <PizzaList />
+        </StyledBox>
+      </Container>
+    </section>
   );
 };
 

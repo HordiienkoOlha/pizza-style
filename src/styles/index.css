@@ -26,3 +26,8 @@ ul {
   padding: 0;
   list-style: none;
 }
+
+h1::before {
+  content: "Pizza";
+  display: none;
+}
