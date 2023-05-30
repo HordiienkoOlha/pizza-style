@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
@@ -14,7 +15,14 @@ import styles from "./PizzaItem.module.css";
 
 const PizzaItem = ({ id, title, description, price, image, quantity }) => {
   const productsCart = useSelector(getProducts);
+  const [showButton, setShowButton] = useState(false);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    productsCart.some((value) => value.id === id) ? setShowButton(true) : setShowButton(false)
+    
+  }, [productsCart]);
 
   const OnHandleAddProduct = ({
     id,
@@ -58,9 +66,12 @@ const PizzaItem = ({ id, title, description, price, image, quantity }) => {
         <Typography variant="h5" component="h3" color="secondary" sx={{ p: 1 }}>
           Price:&nbsp;{price}&nbsp;UAH
         </Typography>
+        <Typography variant="h6" component="h2" gutterBottom>
+          {quantity}
+        </Typography>
       </CardContent>
       <CardContent className={styles.buttonWrapper}>
-        {productsCart.length > 0 ? (
+        {showButton ? (
           <>
             <ReverseIconButton
               onClick={() => {
