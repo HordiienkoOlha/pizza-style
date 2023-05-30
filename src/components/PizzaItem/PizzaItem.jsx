@@ -20,8 +20,9 @@ const PizzaItem = ({ id, title, description, price, image, quantity }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    productsCart.some((value) => value.id === id) ? setShowButton(true) : setShowButton(false)
-    
+    productsCart.some((value) => value.id === id)
+      ? setShowButton(true)
+      : setShowButton(false);
   }, [productsCart]);
 
   const OnHandleAddProduct = ({
